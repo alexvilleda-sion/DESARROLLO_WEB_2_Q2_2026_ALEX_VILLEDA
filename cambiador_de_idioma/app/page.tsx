@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-// CORRECCIÓN 1: Importación sin extensión .tsx
+
 import { LanguageButton } from '../components/LanguageButton';
 import wordsData from '../data/words.json';
 
@@ -13,12 +13,10 @@ interface WordEntry {
 type Language = 'es' | 'en';
 
 export default function App() {
-  // Solo necesitamos un estado: el idioma
+
   const [language, setLanguage] = useState<Language>('es');
 
-  // CORRECCIÓN 2: Estado derivado. 
-  // Calculamos la lista directamente en el cuerpo de la función.
-  // Esto es mucho más eficiente que usar useEffect.
+ 
   const displayList = wordsData.map((item: WordEntry) => item[language]);
 
   return (
